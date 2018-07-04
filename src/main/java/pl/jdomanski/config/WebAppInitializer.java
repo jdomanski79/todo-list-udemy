@@ -15,10 +15,9 @@ public class WebAppInitializer implements WebApplicationInitializer {
     
     private final static String DISPATCHER_SERVLET_NAME = "dispatcher";
     
-    @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        
-        log.info("onStartup");        
+
+        log.info("onStartup");
         
         //create the spring application context
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
@@ -26,10 +25,10 @@ public class WebAppInitializer implements WebApplicationInitializer {
         context.register(WebConfig.class);
         
         // create the dispatcher servlet
-        DispatcherServlet dispatcherSerlet = new DispatcherServlet(context);
+        DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
         
         // register and configure the dispatcher servlet
-        ServletRegistration.Dynamic registration = servletContext.addServlet(DISPATCHER_SERVLET_NAME, dispatcherSerlet);
+        ServletRegistration.Dynamic registration = servletContext.addServlet(DISPATCHER_SERVLET_NAME, dispatcherServlet);
         
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
