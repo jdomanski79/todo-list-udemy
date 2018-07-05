@@ -1,23 +1,19 @@
 package pl.jdomanski.service;
 
 import org.springframework.stereotype.Service;
+
+import lombok.Getter;
 import pl.jdomanski.model.TodoData;
 import pl.jdomanski.model.TodoItem;
-
-import java.util.List;
 
 @Service
 public class TodoItemServiceImpl implements TodoItemService {
 
     // == fields ==
+	@Getter
     private final TodoData data = new TodoData();
 
     // == public methods ==
-    @Override
-    public List<TodoItem> getItems() {
-        return data.getItems();
-    }
-
     @Override
     public void addItem(TodoItem toAdd) {
         data.addItem(toAdd);
@@ -38,8 +34,4 @@ public class TodoItemServiceImpl implements TodoItemService {
         data.updateItem(toUpdate);
     }
 
-    @Override
-    public TodoData getData() {
-        return data;
-    }
 }

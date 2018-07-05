@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import pl.jdomanski.model.TodoData;
 import pl.jdomanski.service.TodoItemService;
@@ -12,7 +13,7 @@ import pl.jdomanski.util.ViewNames;
 
 @Controller
 public class TodoItemController {
-    // == constants ==
+    // == fields ==
     private final TodoItemService todoItemService;
 
     // == constructors ==
@@ -31,5 +32,10 @@ public class TodoItemController {
     @GetMapping(Mappings.ITEMS)
     public String items(){
         return ViewNames.ITEMS_LIST;
+    }
+    
+    @PostMapping(Mappings.ADD_ITEM)
+    public String processItems() {
+    	
     }
 }

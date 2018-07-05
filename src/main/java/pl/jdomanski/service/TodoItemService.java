@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface TodoItemService {
 
-    List<TodoItem> getItems();
-
     void addItem(TodoItem toAdd);
 
     void removeItem(int id);
