@@ -1,36 +1,34 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import="pl.jdomanski.util.Mappings" %>
 <%@ page import="pl.jdomanski.util.AttributeNames" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View item</title>
+    <title>Todo items</title>
 </head>
 <body>
     <div align="center">
-        <form:form method="POST" modelAttribute="${AttributeNames.TODO_ITEM}">
-    	   <table>
+        <table border="1" cellpadding="5">
     	       <tr>
     	           <td><label>ID</label></td>
-    	           <td><form:input path="id" disabled="true"/></td>
+    	           <td>${todoItem.id}</td>
     	       </tr>
     	       <tr>
     	           <td><label>Title</label></td>
-    	           <td><form:input path="title"/></td>
+    	           <td>${todoItem.title}</td>
     	       </tr>
     	       <tr>
     	           <td><label>Date</label></td>
-    	           <td><form:input path="deadline"/></td>
+    	           <td>${todoItem.deadline}</td>
     	       </tr>
     	       <tr>
     	           <td><label>Details</label></td>
-    	           <td><form:textarea path="details"/></td>
-    	       </tr>
-    	       <tr>
-    	           <td><input type="submit" value="Submit"/></td>
+    	           <td>${todoItem.details}</td>
     	       </tr>
     	   </table>
-        </form:form>
+    	   <c:url var="itemsUrl" value="${Mappings.ITEMS}"/>
+    	   <h2><a href="${itemsUrl}">Items list</a></h2>
     </div>    
 </body>
 </html>
